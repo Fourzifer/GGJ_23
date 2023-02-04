@@ -41,6 +41,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Vines
+    uniqueID: 796819085
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

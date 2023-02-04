@@ -96,17 +96,15 @@ public class Vines : MonoBehaviour
         VineGrowPosition += VineGrowSpeed * Time.deltaTime;
         VineGrowPosition = Mathfs.Clamp(VineGrowPosition, StartGrowPosition, EndGrowPosition);
 
-        if (SpawnPointIndex < spawnPositions.Count)
+        while (SpawnPointIndex < spawnPositions.Count &&
+            VineGrowPosition > spawnPositions[SpawnPointIndex].Position.x)
         {
-            while (VineGrowPosition > spawnPositions[SpawnPointIndex].Position.x)
-            {
-                var position = spawnPositions[SpawnPointIndex].Position;
-                var angle = spawnPositions[SpawnPointIndex].Angle;
+            var position = spawnPositions[SpawnPointIndex].Position;
+            var angle = spawnPositions[SpawnPointIndex].Angle;
 
-                Instantiate(VinePrefab, position, Quaternion.Euler(0, 0, angle));
+            Instantiate(VinePrefab, position, Quaternion.Euler(0, 0, angle));
 
-                SpawnPointIndex++;
-            }
+            SpawnPointIndex++;
         }
 
         if (Input.GetMouseButtonDown(0))
