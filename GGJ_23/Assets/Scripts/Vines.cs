@@ -40,7 +40,7 @@ public class Vines : MonoBehaviour
 
     private List<BezierCubic2D[]> GroundSplines = new List<BezierCubic2D[]>();
 
-    public GameObject VinePrefab;
+    public List<GameObject> VinePrefabs;
 
     private List<SpawnPosition> spawnPositions = new List<SpawnPosition>();
 
@@ -100,7 +100,9 @@ public class Vines : MonoBehaviour
             var position = spawnPositions[SpawnPointIndex].Position;
             var angle = spawnPositions[SpawnPointIndex].Angle;
 
-            Instantiate(VinePrefab, position, Quaternion.Euler(0, 0, angle), transform);
+            GameObject prefab = VinePrefabs[Random.Range(0, VinePrefabs.Count)];
+
+            Instantiate(prefab, position, Quaternion.Euler(0, 0, angle), transform);
 
             SpawnPointIndex++;
         }
