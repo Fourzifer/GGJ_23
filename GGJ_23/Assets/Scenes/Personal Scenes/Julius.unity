@@ -324,10 +324,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef02b4a6ec922b74c945e4d7ccea5679, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartGrowPosition: 9.51
-  EndGrowPosition: -11.62
+  StartGrowPosition: -11.62
+  EndGrowPosition: 9.51
   VineGrowPosition: -11.61
-  VineGrowSpeed: 1
+  VineGrowSpeed: 0
   VineDensity: 1
   VinePrefab: {fileID: 1084241227815211755}
 --- !u!4 &416978321
@@ -588,25 +588,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1672797433610056144, guid: 0ef430bb6dbedb149afb2e518d1856d5, type: 3}
-      propertyPath: m_Color.b
-      value: 0.08957814
-      objectReference: {fileID: 0}
-    - target: {fileID: 1672797433610056144, guid: 0ef430bb6dbedb149afb2e518d1856d5, type: 3}
-      propertyPath: m_Color.g
-      value: 0.14284147
-      objectReference: {fileID: 0}
-    - target: {fileID: 1672797433610056144, guid: 0ef430bb6dbedb149afb2e518d1856d5, type: 3}
-      propertyPath: m_Color.r
-      value: 0.31132078
-      objectReference: {fileID: 0}
     - target: {fileID: 6286771863150578095, guid: 0ef430bb6dbedb149afb2e518d1856d5, type: 3}
       propertyPath: m_RootOrder
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6286771863150578095, guid: 0ef430bb6dbedb149afb2e518d1856d5, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6286771863150578095, guid: 0ef430bb6dbedb149afb2e518d1856d5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -652,14 +636,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Vine
       objectReference: {fileID: 0}
-    - target: {fileID: 9043425938296947284, guid: 0ef430bb6dbedb149afb2e518d1856d5, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 9043425938296947284, guid: 0ef430bb6dbedb149afb2e518d1856d5, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ef430bb6dbedb149afb2e518d1856d5, type: 3}
 --- !u!1 &1084241227815211755 stripped
@@ -667,15 +643,3 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7242024034278484862, guid: 0ef430bb6dbedb149afb2e518d1856d5, type: 3}
   m_PrefabInstance: {fileID: 1084241227815211754}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1084241227815211757
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1084241227815211755}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef5300b2183b8c34ea92c2fdef53bf43, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
