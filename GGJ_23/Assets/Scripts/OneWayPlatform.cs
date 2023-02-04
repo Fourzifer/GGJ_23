@@ -19,7 +19,6 @@ public class OneWayPlatform : MonoBehaviour
         if(Input.GetKeyUp(KeyCode.DownArrow) || (Input.GetKeyUp(KeyCode.S)))
         {
             waitTime = 0.3f;
-            print(waitTime);
         }
 
         if (Input.GetKey(KeyCode.DownArrow) || (Input.GetKey(KeyCode.S)))
