@@ -16,12 +16,12 @@ public class OneWayPlatform : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyUp(KeyCode.DownArrow) || (Input.GetKeyUp(KeyCode.S)))
+        if(Input.GetButtonUp("Jump"))
         {
             waitTime = 0.3f;
         }
 
-        if (Input.GetKey(KeyCode.DownArrow) || (Input.GetKey(KeyCode.S)))
+        if (Input.GetAxisRaw("Vertical") < 0)
         {
             print(waitTime);
             if (waitTime <= 0)
@@ -36,7 +36,7 @@ public class OneWayPlatform : MonoBehaviour
             }
         }
 
-        if(Input.GetKey(KeyCode.UpArrow) || (Input.GetKeyUp(KeyCode.W)))
+        if(Input.GetButtonDown("Jump"))
         {
             effector.rotationalOffset = 0;
         }
