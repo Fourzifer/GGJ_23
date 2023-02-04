@@ -572,7 +572,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 126905625}
-  NPCMessage: Hello, child.
+  NPCMessage: '<color="red"> <color="black">banana '
   choices: []
   replies: []
   speed: 0.1

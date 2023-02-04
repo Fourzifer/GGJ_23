@@ -48,6 +48,17 @@ public class DialogueManager : MonoBehaviour
       
         for (int i = 0; i < message.Length; i++)
         {
+            if (message[i] == '<')
+            {
+               
+                while (message[i] != '>')
+                {
+                    text.text += message[i];
+                    i++;
+                }
+                text.text += message[i];
+
+            }
             text.text += message[i];
 
             yield return new WaitForSeconds(speed);
