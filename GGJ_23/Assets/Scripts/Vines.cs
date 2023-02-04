@@ -86,8 +86,6 @@ public class Vines : MonoBehaviour
         }
 
         spawnPositions.Sort((a, b) => Mathfs.SignWithZeroAsInt(a.Position.x - b.Position.x));
-
-        print(string.Join(", ", spawnPositions));
     }
 
     // Update is called once per frame
@@ -102,34 +100,9 @@ public class Vines : MonoBehaviour
             var position = spawnPositions[SpawnPointIndex].Position;
             var angle = spawnPositions[SpawnPointIndex].Angle;
 
-            Instantiate(VinePrefab, position, Quaternion.Euler(0, 0, angle));
+            Instantiate(VinePrefab, position, Quaternion.Euler(0, 0, angle), transform);
 
             SpawnPointIndex++;
-        }
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            foreach (var spline in GroundSplines)
-            {
-                float splineLength = spline.CalcLength();
-                SparseSequence seq = new SparseSequence(Random.Value);
-                for (int i = 0; i < 15; i++)
-                {
-                    float dist = Random.Value * splineLength;
-                    dist = seq.Next() * splineLength;
-
-                    var (curve, t) = spline.CurveAndTFromDistance(dist);
-
-                    var position = curve.Curve.Eval(t);
-                    var tangent = curve.Curve.EvalTangent(t);
-                    var angle = Vector2.Angle(Vector2.up, tangent.Rotate90CCW());
-
-                    if (position.x < VineGrowPosition)
-                    {
-                        Instantiate(VinePrefab, position, Quaternion.Euler(0, 0, angle));
-                    }
-                }
-            }
         }
     }
 

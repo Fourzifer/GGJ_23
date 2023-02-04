@@ -328,7 +328,7 @@ MonoBehaviour:
   EndGrowPosition: 9.51
   VineGrowPosition: -11.61
   VineGrowSpeed: 1
-  VineDensity: 1
+  VineDensity: 1.1
   VinePrefab: {fileID: 1424848476520880356, guid: 52dc1f55f9c84704cb2debd2da0c607d, type: 3}
 --- !u!4 &416978321
 Transform:
@@ -440,6 +440,7 @@ GameObject:
   - component: {fileID: 622839264}
   - component: {fileID: 622839263}
   - component: {fileID: 622839262}
+  - component: {fileID: 622839265}
   m_Layer: 0
   m_Name: Open Sprite Shape
   m_TagString: Ground
@@ -474,7 +475,7 @@ MonoBehaviour:
       m_CornerMode: 1
     - position: {x: 0.20663345, y: 0.5510225, z: 0}
       leftTangent: {x: -1.4335705, y: -1.1100211, z: 0}
-      rightTangent: {x: 1.9949387, y: 1.5446916, z: 0}
+      rightTangent: {x: 1.8250242, y: 1.4131259, z: 0}
       mode: 1
       height: 1
       bevelCutoff: 0
@@ -482,9 +483,19 @@ MonoBehaviour:
       spriteIndex: 0
       corner: 1
       m_CornerMode: 1
-    - position: {x: 7.771208, y: 0.8154967, z: 0}
-      leftTangent: {x: -0.72067165, y: -0.40869153, z: 0}
-      rightTangent: {x: 0.8019562, y: 0.45478773, z: 0}
+    - position: {x: 8.509376, y: 1.2446293, z: 0}
+      leftTangent: {x: -1.8168826, y: -0.64807415, z: 0}
+      rightTangent: {x: 0.11230755, y: 0.040059686, z: 0}
+      mode: 1
+      height: 1
+      bevelCutoff: 0
+      bevelSize: 0
+      spriteIndex: 0
+      corner: 1
+      m_CornerMode: 1
+    - position: {x: 2.4186144, y: -3.281907, z: 0}
+      leftTangent: {x: 2.1315956, y: 0.5567174, z: 0}
+      rightTangent: {x: -0.8920146, y: -0.23297119, z: 0}
       mode: 1
       height: 1
       bevelCutoff: 0
@@ -564,8 +575,8 @@ SpriteShapeRenderer:
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   m_LocalAABB:
-    m_Center: {x: 0.18570185, y: 0.6235573, z: 0}
-    m_Extent: {x: 7.949521, y: 0.8417405, z: 0}
+    m_Center: {x: 0.475883, y: -1.0681229, z: 0}
+    m_Extent: {x: 8.239702, y: 2.5371037, z: 0}
 --- !u!4 &622839264
 Transform:
   m_ObjectHideFlags: 0
@@ -581,6 +592,70 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &622839265
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 622839261}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -7.7025137, y: 0.14897764}
+      - {x: -7.1630855, y: 0.23104347}
+      - {x: -6.782848, y: 0.2454672}
+      - {x: -6.3277464, y: 0.23611099}
+      - {x: -5.245349, y: 0.17112483}
+      - {x: -3.9109538, y: 0.080295384}
+      - {x: -3.3876526, y: 0.05198676}
+      - {x: -2.758355, y: 0.03157273}
+      - {x: -2.145841, y: 0.031255987}
+      - {x: -1.5631971, y: 0.05730595}
+      - {x: -1.0235121, y: 0.11599286}
+      - {x: -0.5398704, y: 0.21358928}
+      - {x: -0.12535542, y: 0.35637307}
+      - {x: 0.6079888, y: 0.7975449}
+      - {x: 1.074572, y: 0.97885984}
+      - {x: 1.5965983, y: 1.1030914}
+      - {x: 2.1639686, y: 1.1787593}
+      - {x: 2.766583, y: 1.2143861}
+      - {x: 3.4876833, y: 1.2157556}
+      - {x: 4.0371447, y: 1.1996177}
+      - {x: 6.0223713, y: 1.0874323}
+      - {x: 6.5568514, y: 1.0647256}
+      - {x: 7.123418, y: 1.0587938}
+      - {x: 7.64445, y: 1.0810344}
+      - {x: 8.109858, y: 1.139978}
+      - {x: 8.508964, y: 1.2443466}
+      - {x: 8.345322, y: 1.0627921}
+      - {x: 7.767981, y: 0.5047743}
+      - {x: 7.017765, y: -0.17919275}
+      - {x: 6.555222, y: -0.5823299}
+      - {x: 5.855484, y: -1.1629248}
+      - {x: 5.4586277, y: -1.4793948}
+      - {x: 4.969737, y: -1.8516259}
+      - {x: 4.4213276, y: -2.2417264}
+      - {x: 3.7956681, y: -2.642164}
+      - {x: 3.3553243, y: -2.894603}
+      - {x: 2.868795, y: -3.126282}
+      - {x: 2.4184542, y: -3.2814333}
+      - {x: 2.1821225, y: -3.3628561}
 --- !u!1001 &1084241227815211754
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -653,34 +728,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Vine bush
       objectReference: {fileID: 0}
-    - target: {fileID: 1424848476520880356, guid: 52dc1f55f9c84704cb2debd2da0c607d, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3881631839857196209, guid: 52dc1f55f9c84704cb2debd2da0c607d, type: 3}
-      propertyPath: m_SplineDetail
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 4128434543754009094, guid: 52dc1f55f9c84704cb2debd2da0c607d, type: 3}
-      propertyPath: m_LocalAABB.m_Center.x
-      value: -0.066221595
-      objectReference: {fileID: 0}
-    - target: {fileID: 4128434543754009094, guid: 52dc1f55f9c84704cb2debd2da0c607d, type: 3}
-      propertyPath: m_LocalAABB.m_Center.y
-      value: 0.856094
-      objectReference: {fileID: 0}
-    - target: {fileID: 4128434543754009094, guid: 52dc1f55f9c84704cb2debd2da0c607d, type: 3}
-      propertyPath: m_LocalAABB.m_Extent.x
-      value: 0.5753312
-      objectReference: {fileID: 0}
-    - target: {fileID: 4128434543754009094, guid: 52dc1f55f9c84704cb2debd2da0c607d, type: 3}
-      propertyPath: m_LocalAABB.m_Extent.y
-      value: 1.0195777
-      objectReference: {fileID: 0}
-    - target: {fileID: 4708159911487493031, guid: 52dc1f55f9c84704cb2debd2da0c607d, type: 3}
-      propertyPath: m_SplineDetail
-      value: 16
-      objectReference: {fileID: 0}
     - target: {fileID: 5221235858000556627, guid: 52dc1f55f9c84704cb2debd2da0c607d, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -724,42 +771,6 @@ PrefabInstance:
     - target: {fileID: 5221235858000556627, guid: 52dc1f55f9c84704cb2debd2da0c607d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6924916316896365307, guid: 52dc1f55f9c84704cb2debd2da0c607d, type: 3}
-      propertyPath: m_LocalAABB.m_Center.x
-      value: 0.08375959
-      objectReference: {fileID: 0}
-    - target: {fileID: 6924916316896365307, guid: 52dc1f55f9c84704cb2debd2da0c607d, type: 3}
-      propertyPath: m_LocalAABB.m_Center.y
-      value: 0.78284883
-      objectReference: {fileID: 0}
-    - target: {fileID: 6924916316896365307, guid: 52dc1f55f9c84704cb2debd2da0c607d, type: 3}
-      propertyPath: m_LocalAABB.m_Extent.x
-      value: 0.29426482
-      objectReference: {fileID: 0}
-    - target: {fileID: 6924916316896365307, guid: 52dc1f55f9c84704cb2debd2da0c607d, type: 3}
-      propertyPath: m_LocalAABB.m_Extent.y
-      value: 0.94328064
-      objectReference: {fileID: 0}
-    - target: {fileID: 7790161525919549901, guid: 52dc1f55f9c84704cb2debd2da0c607d, type: 3}
-      propertyPath: m_LocalAABB.m_Center.x
-      value: 0.032574087
-      objectReference: {fileID: 0}
-    - target: {fileID: 7790161525919549901, guid: 52dc1f55f9c84704cb2debd2da0c607d, type: 3}
-      propertyPath: m_LocalAABB.m_Center.y
-      value: 0.80607635
-      objectReference: {fileID: 0}
-    - target: {fileID: 7790161525919549901, guid: 52dc1f55f9c84704cb2debd2da0c607d, type: 3}
-      propertyPath: m_LocalAABB.m_Extent.x
-      value: 0.45075357
-      objectReference: {fileID: 0}
-    - target: {fileID: 7790161525919549901, guid: 52dc1f55f9c84704cb2debd2da0c607d, type: 3}
-      propertyPath: m_LocalAABB.m_Extent.y
-      value: 0.9654017
-      objectReference: {fileID: 0}
-    - target: {fileID: 8380323194879633539, guid: 52dc1f55f9c84704cb2debd2da0c607d, type: 3}
-      propertyPath: m_SplineDetail
-      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52dc1f55f9c84704cb2debd2da0c607d, type: 3}
