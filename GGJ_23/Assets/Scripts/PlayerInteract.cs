@@ -7,7 +7,7 @@ using UnityEngine;
 public class PlayerInteract : MonoBehaviour
 {
     public bool interactPossible = false;
-    GameObject interactable;
+    DialogueManager interactable;
 
     public TMPro.TextMeshProUGUI text;
 
@@ -20,14 +20,21 @@ public class PlayerInteract : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButton("Interact"))
+
+        
+        if (interactPossible == true)
         {
-            if (interactPossible == true)
+           
+            if (Input.GetButtonDown("Interact"))
             {
-                
-               
-            }
+                Transform dialogue = interactable.transform.Find("Canvas/Dialogue");
+                dialogue.gameObject.SetActive(true);
+                interactable.startDialogue();
+            }          
         }
+        
+
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -36,17 +43,16 @@ public class PlayerInteract : MonoBehaviour
         if (collision.CompareTag("NPC")|| collision.CompareTag("NPC"))
         {
             text.SetText("Press E to interact");
-            
-            //interactable = collision.
+
+            interactable = collision.GetComponent<DialogueManager>();
             interactPossible = true;
         }
         
-   
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("NPC") || collision.CompareTag("NPC"))
+        if (collision.CompareTag("NPC"))
         {
             text.SetText("");
         }

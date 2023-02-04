@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     private float horizontalAxisValues;
     private bool faceRight = true;
 
-
+    public float maxAngle;
     public float horizontalSpeed;
     public float verticalSpeed;
     public float height;
@@ -84,6 +84,17 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        count = 0;
+        for (int i = 0; i < collision.contactCount; i++)
+        {
+            Vector2 normal = collision.GetContact(i).normal;
+          
+            if(Vector2.Angle(Vector2.up, normal)>maxAngle) //set max angle that is allowed to be jumped on
+            {
+                count = 0;
+            }
+        }
+        
+        
+      
     }
 }

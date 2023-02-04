@@ -13,28 +13,26 @@ public class DialogueManager : MonoBehaviour
     public string[] replies;
 
     public float speed;
+
+    public TextMeshProUGUI button1;
+
    
     // Start is called before the first frame update
     void Start()
     {
-
-        
+  
         
     }
 
-   
-
     private void Update()
     {
-        if (Input.GetButtonDown("Interact"))
-        {
-            continueDialogue();
-        }
+        
     }
 
     public void startDialogue()
     {
         StartCoroutine(writeText(NPCMessage));
+
     }
 
     void continueDialogue()
@@ -47,8 +45,7 @@ public class DialogueManager : MonoBehaviour
 
     IEnumerator writeText(string message)
     {
-        
-
+      
         for (int i = 0; i < message.Length; i++)
         {
             text.text += message[i];
@@ -56,7 +53,17 @@ public class DialogueManager : MonoBehaviour
             yield return new WaitForSeconds(speed);
 
         }
+
+
+    
     }
+
+    void presentOptions()
+    {
+        button1.text = choices[0];
+    }
+
+
 
 
 }
