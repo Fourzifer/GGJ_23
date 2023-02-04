@@ -7,7 +7,7 @@ using UnityEngine;
 public class PlayerInteract : MonoBehaviour
 {
     public bool interactPossible = false;
-
+    GameObject interactable;
 
     public TMPro.TextMeshProUGUI text;
 
@@ -37,6 +37,7 @@ public class PlayerInteract : MonoBehaviour
         {
             text.SetText("Press E to interact");
             
+            //interactable = collision.
             interactPossible = true;
         }
         
