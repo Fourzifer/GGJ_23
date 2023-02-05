@@ -13,11 +13,17 @@ public class PlayerMovement : MonoBehaviour
     public float height;
     public float fallSpeedMult;
 
+    public float airSpeedDamping = 0.2f;
+    public float airSpeedRatio = 0.5f;
+
     public Rigidbody2D rigidBody;
 
     private bool allowJump = false;
 
-    int count = 0;
+    [SerializeField] int count = 0;
+
+    //[HideInInspector]
+    public bool UsingGrapplingHook = false;
 
     // Update is called once per frame
     void Update()
@@ -33,45 +39,61 @@ public class PlayerMovement : MonoBehaviour
             flipDirection();
         }
 
-        
-        //jumping
 
-        if(Input.GetButtonDown("Jump"))
+        if (UsingGrapplingHook == false)
         {
-            
-            if (count<2)
+            //jumping
+            if (Input.GetButtonDown("Jump"))
             {
-                allowJump = true;
-                count++;
-            }
-            else
-            {
-                allowJump = false;
+                if (count < 2)
+                {
+                    allowJump = true;
+                    count++;
+                }
+                else
+                {
+                    allowJump = false;
+                }
+
+                if (allowJump == true)
+                {
+                    // allows to jump a certain height,
+                    // * with gravity scale and increased gavity on object in game gives iniial faster speed for better looking jump
+                    rigidBody.velocity = new Vector2(rigidBody.velocity.x, Mathf.Sqrt(-2 * Physics2D.gravity.y * rigidBody.gravityScale * height));
+                }
             }
 
-            
-            if (allowJump==true)
+            //check if going down
+            if (rigidBody.velocity.y < 0)
             {
-                rigidBody.velocity = new Vector2(rigidBody.velocity.x, Mathf.Sqrt(-2 * Physics2D.gravity.y * rigidBody.gravityScale * height)); //allows to jump a certain height, * with gravity scale and increased rgavity on object in game gives iniial faster speed for better looking jump
-
+                rigidBody.velocity += Vector2.up * Physics2D.gravity.y * (fallSpeedMult - 1) * Time.deltaTime;
             }
-
         }
-
-        //check if going down
-        if (rigidBody.velocity.y<0)
-        {
-            rigidBody.velocity += Vector2.up*Physics2D.gravity.y*(fallSpeedMult-1)*Time.deltaTime;
-        }
-
-        
-       
-        
     }
 
     private void FixedUpdate()
     {
-        rigidBody.velocity = new Vector2(horizontalAxisValues * horizontalSpeed, rigidBody.velocity.y);
+        if (UsingGrapplingHook)
+        {
+            // Only apply force when we are pressing the button.
+            if (Mathf.Abs(horizontalAxisValues) > 0)
+            {
+                rigidBody.AddForce(new Vector2(horizontalAxisValues * horizontalSpeed, 0), ForceMode2D.Force);
+            }
+        }
+        else
+        {
+            if (count > 0)
+            {
+                var s = horizontalAxisValues * horizontalSpeed * airSpeedRatio + Mathf.Lerp(0, rigidBody.velocity.x, 1 - airSpeedDamping);
+                s = Mathf.Clamp(s, -horizontalSpeed, horizontalSpeed);
+                rigidBody.velocity = new Vector2(s, rigidBody.velocity.y);
+            }
+            else
+            {
+                rigidBody.velocity = new Vector2(horizontalAxisValues * horizontalSpeed, rigidBody.velocity.y);
+            }
+        }
     }
 
     private void flipDirection()
@@ -90,14 +112,17 @@ public class PlayerMovement : MonoBehaviour
 
             if(Vector2.Angle(Vector2.up, normal) < maxAngle) //set max angle that is allowed to be jumped on
             {
-                //count = 0;
+                if (Mathf.Abs(rigidBody.velocity.y) < 0.01)
+                {
+                    count = 0;
+                }
             }
         }
     }
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (Mathf.Abs(rigidBody.velocity.y) < 0.0001)
+        if (Mathf.Abs(rigidBody.velocity.y) < 0.01)
         {
             count = 0;
         }
