@@ -462,7 +462,7 @@ MonoBehaviour:
   objectDescription:
   - A shiny ball.
   isObject: 1
-  state: 0
+  state: 2
   byeOption: 0
   isDone: 0
   buttonsAgain: 0

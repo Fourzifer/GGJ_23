@@ -31,7 +31,7 @@ public class DialogueManager : MonoBehaviour
 
     GameObject[] buttons;
 
-    public DialogStates state = DialogStates.Talking;
+    public DialogStates state = DialogStates.Waiting;
 
     public bool byeOption;
 
@@ -63,6 +63,9 @@ public class DialogueManager : MonoBehaviour
     {
         if (state == DialogStates.Talking)
         {
+            print(state);
+            FindObjectOfType<PlayerMovement>().enabled = false;
+
             if (isDone)
             {
                 if (byeOption == true)
@@ -70,7 +73,9 @@ public class DialogueManager : MonoBehaviour
                    
                     Canvas canvas = buttonParent.GetComponentInParent<Canvas>();
                     canvas.transform.Find("Dialogue").gameObject.SetActive(false);
-                   
+
+                    FindObjectOfType<PlayerMovement>().enabled = true;
+
                     state = DialogStates.Waiting;
                 }
 
@@ -78,6 +83,8 @@ public class DialogueManager : MonoBehaviour
                 {
                     Canvas canvas = buttonParent.GetComponentInParent<Canvas>();
                     canvas.transform.Find("Dialogue").gameObject.SetActive(false);
+
+                    FindObjectOfType<PlayerMovement>().enabled = true;
 
                     state = DialogStates.Waiting;
                 }
@@ -135,6 +142,7 @@ public class DialogueManager : MonoBehaviour
                 {
                     text.text = message[i];
                     skipText = false;
+                    yield return new WaitForSeconds(1f);
                     break;
                 }
 
@@ -144,9 +152,10 @@ public class DialogueManager : MonoBehaviour
                     while (message[i][k] != '>')
                     {
                         text.text += message[i][k];
-                        i++;
+                        k++;
                     }
                     text.text += message[i][k];
+                    k++;
 
                 }
 
