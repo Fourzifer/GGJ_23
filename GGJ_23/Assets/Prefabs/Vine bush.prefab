@@ -81,7 +81,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2408769462333404376}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.128, y: -0.1, z: 0}
+  m_LocalPosition: {x: -0.128, y: 0.44699708, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -144,8 +144,8 @@ SpriteShapeRenderer:
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   m_LocalAABB:
-    m_Center: {x: 0.21471645, y: 0.3576756, z: 0}
-    m_Extent: {x: 0.18210134, y: 0.5343117, z: 0}
+    m_Center: {x: 0.19091946, y: 0.36402425, z: 0}
+    m_Extent: {x: 0.2856695, y: 0.70801353, z: 0}
 --- !u!114 &8380323194879633539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -243,7 +243,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2819395539746064300}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.128, y: -0.1, z: 0}
+  m_LocalPosition: {x: -0.128, y: 0.44699708, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -306,8 +306,8 @@ SpriteShapeRenderer:
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   m_LocalAABB:
-    m_Center: {x: -0.043192998, y: 0.22460692, z: 0}
-    m_Extent: {x: 0.15460333, y: 0.39228916, z: 0}
+    m_Center: {x: 0.0076363087, y: 0.22650811, z: 0}
+    m_Extent: {x: 0.21518439, y: 0.5618726, z: 0}
 --- !u!114 &4708159911487493031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -395,7 +395,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3668782448047104620}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.128, y: -0.1, z: 0}
+  m_LocalPosition: {x: -0.128, y: 0.447, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -458,8 +458,8 @@ SpriteShapeRenderer:
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   m_LocalAABB:
-    m_Center: {x: 0.24923907, y: 0.27654094, z: 0}
-    m_Extent: {x: 0.3180406, y: 0.44319627, z: 0}
+    m_Center: {x: 0.27916098, y: 0.28702703, z: 0}
+    m_Extent: {x: 0.42782468, y: 0.6110547, z: 0}
 --- !u!114 &3616983062419742548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -541,6 +541,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4877817596325404348}
   - component: {fileID: 2772451100530610804}
+  - component: {fileID: 5689749041445580784}
   m_Layer: 0
   m_Name: Collider
   m_TagString: Vine
@@ -556,7 +557,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6060964321631281189}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5469971, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -573,7 +574,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.21}
@@ -589,6 +590,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &5689749041445580784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6060964321631281189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 808de402b0393134786c41b8fb11c0bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6770929679820601528
 GameObject:
   m_ObjectHideFlags: 0
@@ -615,7 +628,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6770929679820601528}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.128, y: -0.1, z: 0}
+  m_LocalPosition: {x: -0.128, y: 0.44699708, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -678,8 +691,8 @@ SpriteShapeRenderer:
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   m_LocalAABB:
-    m_Center: {x: -0.06099838, y: 0.25283575, z: 0}
-    m_Extent: {x: 0.19448853, y: 0.42009807, z: 0}
+    m_Center: {x: -0.04717359, y: 0.25222832, z: 0}
+    m_Extent: {x: 0.22132409, y: 0.57747, z: 0}
 --- !u!114 &2306496027594046334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -777,7 +790,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8097728039255019679}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.128, y: -0.1, z: 0}
+  m_LocalPosition: {x: -0.128, y: 0.44699708, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -840,8 +853,8 @@ SpriteShapeRenderer:
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   m_LocalAABB:
-    m_Center: {x: -0.061508477, y: 0.2520931, z: 0}
-    m_Extent: {x: 0.26593018, y: 0.43171322, z: 0}
+    m_Center: {x: -0.04741639, y: 0.2507431, z: 0}
+    m_Extent: {x: 0.36343, y: 0.6007004, z: 0}
 --- !u!114 &3881631839857196209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -939,7 +952,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8345677717923959873}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.13899998, y: -0.1, z: 0}
+  m_LocalPosition: {x: 0.13899998, y: 0.44699708, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1002,8 +1015,8 @@ SpriteShapeRenderer:
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   m_LocalAABB:
-    m_Center: {x: -0.004639834, y: 0.23442484, z: 0}
-    m_Extent: {x: 0.30904853, y: 0.41658175, z: 0}
+    m_Center: {x: -0.028544605, y: 0.23054054, z: 0}
+    m_Extent: {x: 0.41095334, y: 0.5855714, z: 0}
 --- !u!114 &5053919161207652838
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -81,6 +81,8 @@ public class Vines : MonoBehaviour
                 var tangent = curve.Curve.EvalTangent(t);
                 var angle = Vector2.Angle(Vector2.up, tangent.Rotate90CCW());
 
+                if (position.x < StartGrowPosition) continue;
+
                 spawnPositions.Add(new SpawnPosition(position, angle));
             }
         }

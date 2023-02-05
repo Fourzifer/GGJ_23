@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameMaster : MonoBehaviour
 {
+    public bool gotten = false;
+
     private static GameMaster instance;
     public Vector2 lastCheckPointPos;
 
@@ -21,5 +23,13 @@ public class GameMaster : MonoBehaviour
              Destroy(gameObject);
         }
 
+    }
+
+    private void Update()
+    {
+        if (gotten)
+        {
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Hook>().enabled = true;
+        }
     }
 }

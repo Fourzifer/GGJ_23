@@ -15,6 +15,7 @@ public class OneOffSFX : MonoBehaviour
         source.clip = clip;
         source.outputAudioMixerGroup = mixerGroup;
         source.volume = volume;
+        source.spatialBlend = 0.3f;
         return obj.GetComponent<OneOffSFX>();
     }
 

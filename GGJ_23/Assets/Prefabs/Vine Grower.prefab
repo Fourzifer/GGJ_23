@@ -44,11 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef02b4a6ec922b74c945e4d7ccea5679, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartGrowPosition: -11.62
-  EndGrowPosition: 9.51
-  VineGrowPosition: -11.61
+  StartGrowPosition: -69.2
+  EndGrowPosition: 240.6
+  VineGrowPosition: -69.2
   VineGrowSpeed: 1
-  VineDensity: 2
+  VineDensity: 1
   VinePrefabs:
   - {fileID: 1424848476520880356, guid: 704ce08c827544c40a9ec71535029fc3, type: 3}
   - {fileID: 1424848476520880356, guid: 52dc1f55f9c84704cb2debd2da0c607d, type: 3}

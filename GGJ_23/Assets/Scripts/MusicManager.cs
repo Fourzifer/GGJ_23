@@ -21,11 +21,13 @@ public class MusicManager : MonoBehaviour
     public void PlayCalmMusic()
     {
         AudioSource.clip = CalmMusic;
+        AudioSource.Play();
     }
 
     // Update is called once per frame
     public void PlayIntenseMusic()
     {
         AudioSource.clip = IntenseMusic;
+        AudioSource.Play();
     }
 }
