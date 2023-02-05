@@ -123,6 +123,7 @@ public class Vines : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
+        /*
         Gizmos.color = Color.magenta;
         foreach (var spawn in spawnPositions)
         {
@@ -151,5 +152,6 @@ public class Vines : MonoBehaviour
                 }
             }
         }
+        */
     }
 }

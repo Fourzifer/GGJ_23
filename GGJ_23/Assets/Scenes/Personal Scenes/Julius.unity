@@ -328,7 +328,7 @@ MonoBehaviour:
   EndGrowPosition: 9.51
   VineGrowPosition: -11.61
   VineGrowSpeed: 1
-  VineDensity: 1.1
+  VineDensity: 2
   VinePrefabs:
   - {fileID: 1901774601}
 --- !u!4 &416978321

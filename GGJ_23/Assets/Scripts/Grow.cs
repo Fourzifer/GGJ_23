@@ -3,7 +3,6 @@ using Freya;
 using UnityEngine.U2D;
 using UnityEngine.UIElements;
 
-[RequireComponent(typeof(BoxCollider2D))]
 public class Grow : MonoBehaviour
 {
     public float GrowSpeed;
@@ -27,8 +26,10 @@ public class Grow : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        trigger = GetComponent<BoxCollider2D>();
-        trigger.size = new Vector2(trigger.size.x, 0);
+        trigger = GetComponentInChildren<BoxCollider2D>();
+        var scale = trigger.transform.localScale;
+        scale.y = 0;
+        trigger.transform.localScale = scale;
 
         Splines = GetComponentsInChildren<SpriteShapeController>();
         GrowData = new SplineGrowData[Splines.Length];
@@ -63,7 +64,9 @@ public class Grow : MonoBehaviour
             }
         }
 
-        trigger.size += new Vector2(0, ColliderGrowthRate * Time.deltaTime);
-        
+        var scale = trigger.transform.localScale;
+        scale.y += ColliderGrowthRate * Time.deltaTime;
+        scale.y = Mathfs.Clamp(scale.y, 0, MaxColliderHeight);
+        trigger.transform.localScale = scale;
     }
 }
