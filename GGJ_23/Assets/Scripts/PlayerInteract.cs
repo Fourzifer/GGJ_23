@@ -29,11 +29,15 @@ public class PlayerInteract : MonoBehaviour
 
             }
 
-            else if (Input.GetButtonDown("Interact") && NPC == true)
+            else if (Input.GetButtonDown("Interact") && NPC == false)
             {
                 interactPossible = false;
-                Transform dialogue = interactable.transform.Find("Canvas/Dialogue");
+                Transform dialogue = interactable.transform.Find("Canvas1/Dialogue");
                 dialogue.gameObject.SetActive(true);
+
+                interactable.isObject = true;
+
+                interactable.startDialogue();
             }
         }
 
