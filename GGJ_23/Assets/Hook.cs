@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Hook : MonoBehaviour
 {
+    public float MaxHookDistance;
+
     GameObject[] HookPoints;
 
     LineRenderer Line;
@@ -16,7 +18,10 @@ public class Hook : MonoBehaviour
 
     PlayerMovement Player;
 
+    SpriteRenderer HighlightedPoint;
     GameObject GrabbedPoint;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -42,27 +47,41 @@ public class Hook : MonoBehaviour
     {
         GameObject closestHookPoint = FindClosestHookPoint(transform.position);
 
-        // FIXME: Highlight the closest hook point!
-        if (Input.GetButtonDown("Hook"))
-        {
-            if (swinging)
-            {
-                ReleaseHook();
-                swinging = false;
-            }
-            else
-            {
-                GrabHook(closestHookPoint);
-                swinging = true;
-            }
-        }
+        float dist = Vector2.Distance(transform.position, closestHookPoint.transform.position);
 
-        if (Input.GetButtonDown("Jump"))
+        if (HighlightedPoint != null)
         {
-            if (swinging)
+            HighlightedPoint.color = Color.white;
+        }
+        
+        if (dist <= MaxHookDistance)
+        {
+            // FIXME: Highlight the closest hook point!
+            HighlightedPoint = closestHookPoint.GetComponentInChildren<SpriteRenderer>();
+            HighlightedPoint.color = Color.red;
+
+            if (Input.GetButtonDown("Hook"))
             {
-                ReleaseHook();
-                swinging = false;
+                if (swinging)
+                {
+                    ReleaseHook();
+                    swinging = false;
+                }
+                else
+                {
+                    GrabHook(closestHookPoint);
+                    swinging = true;
+                }
+            }
+
+            if (Input.GetButtonDown("Jump"))
+            {
+                if (swinging)
+                {
+                    ReleaseHook();
+                    swinging = false;
+                    Player.count = 0;
+                }
             }
         }
 
@@ -149,5 +168,10 @@ public class Hook : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireSphere(transform.position, MaxHookDistance);
     }
 }

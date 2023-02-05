@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
 
     private bool allowJump = false;
 
-    [SerializeField] int count = 0;
+    public int count = 0;
 
     //[HideInInspector]
     public bool UsingGrapplingHook = false;
