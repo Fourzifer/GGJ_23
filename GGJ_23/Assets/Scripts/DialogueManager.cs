@@ -101,6 +101,8 @@ public class DialogueManager : MonoBehaviour
 
     public void startDialogue()
     {
+        byeOption = false;
+
         if (isObject==false)
         {
             StartCoroutine(writeText(NPCMessage));
