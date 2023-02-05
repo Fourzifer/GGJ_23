@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 
@@ -51,7 +52,7 @@ public class PlayerInteract : MonoBehaviour
 
         if (collision.CompareTag("NPC"))
         {
-            text.SetText("Press E to interact");
+            collision.GetComponentInChildren<TextMeshProUGUI>().SetText("Press E to interact");
 
             interactable = collision.GetComponent<DialogueManager>();
 
@@ -61,7 +62,7 @@ public class PlayerInteract : MonoBehaviour
         }
         else if (collision.CompareTag("Object"))
         {
-            text.SetText("Press E to interact");
+            collision.GetComponentInChildren<TextMeshProUGUI>().SetText("Press E to interact");
 
             interactable = collision.GetComponent<DialogueManager>();
 
