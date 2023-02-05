@@ -9,6 +9,7 @@ TagManager:
   - Ground
   - Vine
   - Hook Point
+  - GM
   layers:
   - Default
   - TransparentFX
@@ -43,6 +44,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 3972578267
+    locked: 0
   - name: Vines
     uniqueID: 796819085
     locked: 0
