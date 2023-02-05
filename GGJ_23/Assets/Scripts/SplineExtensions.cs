@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.U2D;
 using Freya;
-using static UnityEditor.PlayerSettings;
 
 public static class SplineExtensions
 {
