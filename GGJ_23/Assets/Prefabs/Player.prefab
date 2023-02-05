@@ -109,6 +109,11 @@ MonoBehaviour:
   airSpeedDamping: 0.1
   airSpeedRatio: 0.2
   rigidBody: {fileID: 6590534186701072734}
+  JumpAudio: {fileID: 8300000, guid: bb9c0d621a19618408b661597ac219d8, type: 3}
+  LandAudio: {fileID: 8300000, guid: 6477da14c206bf74d91793abf69dce7c, type: 3}
+  MixerGroup: {fileID: 3514787453638781306, guid: b15ab1a793da8aa40a7602b0325e1e5c, type: 2}
+  Volume: 0.5
+  count: 0
   UsingGrapplingHook: 0
 --- !u!50 &6590534186701072734
 Rigidbody2D:
@@ -183,3 +188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3278083f0e9cca9458f27cdb98f4cd32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MaxHookDistance: 7
+  HookAudio: {fileID: 8300000, guid: 17e5486db6fee3c4ebe025350ed77bc1, type: 3}
+  MixerGroup: {fileID: 0}
+  Volume: 0.5

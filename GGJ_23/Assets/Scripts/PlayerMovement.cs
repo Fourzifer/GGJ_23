@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -19,6 +20,12 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D rigidBody;
 
     private bool allowJump = false;
+
+    public AudioClip JumpAudio;
+    public AudioClip LandAudio;
+    public AudioMixerGroup MixerGroup;
+    [Range(0, 1)]
+    public float Volume;
 
     public int count = 0;
 
@@ -60,6 +67,8 @@ public class PlayerMovement : MonoBehaviour
                     // allows to jump a certain height,
                     // * with gravity scale and increased gavity on object in game gives iniial faster speed for better looking jump
                     rigidBody.velocity = new Vector2(rigidBody.velocity.x, Mathf.Sqrt(-2 * Physics2D.gravity.y * rigidBody.gravityScale * height));
+
+                    OneOffSFX.Spawn(transform.position, JumpAudio, MixerGroup, Volume);
                 }
             }
 
@@ -115,6 +124,8 @@ public class PlayerMovement : MonoBehaviour
                 if (Mathf.Abs(rigidBody.velocity.y) < 0.01)
                 {
                     count = 0;
+
+                    OneOffSFX.Spawn(transform.position, LandAudio, MixerGroup, Volume);
                 }
             }
         }
