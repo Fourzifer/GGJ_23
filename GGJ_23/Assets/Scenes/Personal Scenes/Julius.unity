@@ -232,6 +232,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5304535324607148521, guid: c10e54ac598ca9a4c9d51547f6fa350e, type: 3}
+      propertyPath: VineDensity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5304535324607148521, guid: c10e54ac598ca9a4c9d51547f6fa350e, type: 3}
       propertyPath: EndGrowPosition
       value: 225.3
       objectReference: {fileID: 0}
