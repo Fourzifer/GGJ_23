@@ -35,6 +35,8 @@ public class DialogueManager : MonoBehaviour
 
     public bool byeOption;
 
+    private bool skipText = false;
+
     public void getButtons()
     {
         buttons = new GameObject[choices.Length];
@@ -127,6 +129,13 @@ public class DialogueManager : MonoBehaviour
         {
             for (int k = 0; k < message[i].Length; k++)
             {
+                if (skipText)
+                {
+                    text.text = message[i];
+                    skipText = false;
+                    break;
+                }
+
                 if (message[i][k] == '<')
                 {
 
@@ -143,8 +152,6 @@ public class DialogueManager : MonoBehaviour
 
                 yield return new WaitForSeconds(speed);
             }
-
-            
 
             yield return new WaitForSeconds(0.75f);
 
@@ -176,6 +183,11 @@ public class DialogueManager : MonoBehaviour
             byeOption = true;
         }
         StartCoroutine(writeText(replyList));
+    }
+
+    public void SkipText()
+    {
+        skipText = true;
     }
 }
 
