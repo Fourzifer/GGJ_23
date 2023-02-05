@@ -2,10 +2,14 @@ using Freya;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class Hook : MonoBehaviour
 {
     public float MaxHookDistance;
+
+    public AudioClip HookAudio;
+    public AudioMixerGroup MixerGroup;
 
     GameObject[] HookPoints;
 
@@ -47,7 +51,15 @@ public class Hook : MonoBehaviour
     {
         GameObject closestHookPoint = FindClosestHookPoint(transform.position);
 
-        float dist = Vector2.Distance(transform.position, closestHookPoint.transform.position);
+        float dist;
+        if (closestHookPoint == null)
+        {
+            dist = float.PositiveInfinity;
+        }
+        else
+        {
+            dist = Vector2.Distance(transform.position, closestHookPoint.transform.position);
+        }
 
         if (HighlightedPoint != null)
         {
@@ -115,6 +127,9 @@ public class Hook : MonoBehaviour
         Player.UsingGrapplingHook = true;
 
         GrabbedPoint = hookPoint;
+
+        OneOffSFX.Spawn(transform.position, HookAudio, MixerGroup);
+        print("Spawn");
     }
 
     void ReleaseHook()
