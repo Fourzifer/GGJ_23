@@ -88,17 +88,11 @@ public class PlayerMovement : MonoBehaviour
         {
             Vector2 normal = collision.GetContact(i).normal;
 
-            Debug.DrawRay(collision.GetContact(i).point, normal, Color.red, 0.5f);
-            print(Vector2.Angle(Vector2.up, normal));
-
             if(Vector2.Angle(Vector2.up, normal) < maxAngle) //set max angle that is allowed to be jumped on
             {
                 //count = 0;
             }
         }
-        
-        
-      
     }
 
     private void OnCollisionStay2D(Collision2D collision)

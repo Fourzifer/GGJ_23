@@ -6,11 +6,13 @@ public class OneWayPlatform : MonoBehaviour
 {
     private PlatformEffector2D effector;
     public float waitTime;
+    private float timer;
 
     // Start is called before the first frame update
     void Start()
     {
         effector = GetComponent<PlatformEffector2D>();
+        timer = waitTime;
     }
 
     // Update is called once per frame
@@ -18,25 +20,24 @@ public class OneWayPlatform : MonoBehaviour
     {
         if(Input.GetButtonUp("Jump"))
         {
-            waitTime = 0.3f;
+            timer = waitTime;
         }
 
         if (Input.GetAxisRaw("Vertical") < 0)
         {
-            print(waitTime);
-            if (waitTime <= 0)
-            {
-                effector.rotationalOffset = 180f;
-                waitTime = 0.3f;
-            }
+            effector.rotationalOffset = 180f;
 
-            else
-            {
-                waitTime -= Time.deltaTime;
-            }
+            timer = waitTime;
         }
 
-        if(Input.GetButtonDown("Jump"))
+        timer -= Time.deltaTime;
+        if (timer <= 0)
+        {
+            effector.rotationalOffset = 0;
+            timer = 0;
+        }
+
+        if (Input.GetButtonDown("Jump"))
         {
             effector.rotationalOffset = 0;
         }
