@@ -12,24 +12,20 @@ public class PlayerInteract : MonoBehaviour
 
     public TMPro.TextMeshProUGUI text;
 
-
-    
     // Update is called once per frame
     void Update()
     {
         if (interactPossible == true)
         {
-           if (Input.GetButtonDown("Interact") && NPC==true )
+            if (Input.GetButtonDown("Interact") && NPC==true )
             {
              
                 interactPossible = false;
                 Transform dialogue = interactable.transform.Find("Canvas/Dialogue");
                 dialogue.gameObject.SetActive(true);
                 interactable.startDialogue();
-                
 
             }
-
             else if (Input.GetButtonDown("Interact") && NPC == false)
             {
                 interactPossible = false;
@@ -41,10 +37,14 @@ public class PlayerInteract : MonoBehaviour
                 interactable.startDialogue();
             }
         }
-
-        
+        else
+        {
+            if (interactable != null && Input.GetButtonDown("Interact"))
+            {
+                interactable.SkipText();
+            }
+        }
     }
-
 
     bool NPC = false;
     private void OnTriggerEnter2D(Collider2D collision)
@@ -77,8 +77,11 @@ public class PlayerInteract : MonoBehaviour
     {
         if (collision.CompareTag("NPC"))
         {
-            text.SetText("");
+            collision.GetComponentInChildren<TextMeshProUGUI>().SetText("");
         }
-
+        else if (collision.CompareTag("Object"))
+        {
+            collision.GetComponentInChildren<TextMeshProUGUI>().SetText("");
+        }
     }
 }
