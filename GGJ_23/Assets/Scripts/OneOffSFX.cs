@@ -6,13 +6,15 @@ using UnityEngine.Audio;
 [RequireComponent(typeof(AudioSource))]
 public class OneOffSFX : MonoBehaviour
 {
-    public static OneOffSFX Spawn(Vector3 position, AudioClip clip, AudioMixerGroup mixerGroup, Transform parent = null)
+    public static OneOffSFX Spawn(Vector3 position, AudioClip clip, AudioMixerGroup mixerGroup, float volume, Transform parent = null)
     {
         GameObject obj = new GameObject(clip.name, new[] { typeof(AudioSource), typeof(OneOffSFX) } );
         obj.transform.position = position;
         obj.transform.parent = parent;
-        obj.GetComponent<AudioSource>().clip = clip;
-        obj.GetComponent<AudioSource>().outputAudioMixerGroup = mixerGroup;
+        var source = obj.GetComponent<AudioSource>();
+        source.clip = clip;
+        source.outputAudioMixerGroup = mixerGroup;
+        source.volume = volume;
         return obj.GetComponent<OneOffSFX>();
     }
 
@@ -23,6 +25,7 @@ public class OneOffSFX : MonoBehaviour
     {
         Source = GetComponent<AudioSource>();
         Source.loop = false;
+        Source.Play();
     }
 
     // Update is called once per frame

@@ -27,13 +27,13 @@ public class Grow : MonoBehaviour
     void Start()
     {
         trigger = GetComponentInChildren<BoxCollider2D>();
-        var scale = trigger.transform.localScale;
+        var scale = transform.localScale;
         scale.y = 0;
-        trigger.transform.localScale = scale;
+        transform.localScale = scale;
 
         Splines = GetComponentsInChildren<SpriteShapeController>();
         GrowData = new SplineGrowData[Splines.Length];
-        foreach (var controller in Splines)
+        /*foreach (var controller in Splines)
         {
             controller.autoUpdateCollider = false;
 
@@ -43,12 +43,13 @@ public class Grow : MonoBehaviour
             {
                 spline.SetHeight(i, 0);
             }
-        }
+        }*/
     }
 
     // Update is called once per frame
     void Update()
     {
+        /*
         for (int i = 0; i < Splines.Length; i++)
         {
             if (GrowData[i].Index < Splines[i].spline.GetPointCount())
@@ -63,10 +64,10 @@ public class Grow : MonoBehaviour
                 }
             }
         }
-
-        var scale = trigger.transform.localScale;
+        */
+        var scale = transform.localScale;
         scale.y += ColliderGrowthRate * Time.deltaTime;
         scale.y = Mathfs.Clamp(scale.y, 0, MaxColliderHeight);
-        trigger.transform.localScale = scale;
+        transform.localScale = scale;
     }
 }

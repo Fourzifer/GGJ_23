@@ -10,6 +10,8 @@ public class Hook : MonoBehaviour
 
     public AudioClip HookAudio;
     public AudioMixerGroup MixerGroup;
+    [Range(0, 1)]
+    public float Volume;
 
     GameObject[] HookPoints;
 
@@ -128,8 +130,7 @@ public class Hook : MonoBehaviour
 
         GrabbedPoint = hookPoint;
 
-        OneOffSFX.Spawn(transform.position, HookAudio, MixerGroup);
-        print("Spawn");
+        OneOffSFX.Spawn(transform.position, HookAudio, MixerGroup, Volume);
     }
 
     void ReleaseHook()
