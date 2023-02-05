@@ -7,6 +7,6 @@ public class LoadScene : MonoBehaviour
 {
     public void LoadNextScene ()
     {
-        SceneManager.LoadScene("MainScene");
+        SceneManager.LoadScene("Liam");
     }
 }
