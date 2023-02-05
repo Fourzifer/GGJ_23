@@ -17,24 +17,37 @@ public class PlayerInteract : MonoBehaviour
         
     }
 
+    bool isInteracting = false;
     // Update is called once per frame
     void Update()
     {
 
-        
         if (interactPossible == true)
         {
            
             if (Input.GetButtonDown("Interact"))
             {
+
+                
+                interactPossible = false;
                 Transform dialogue = interactable.transform.Find("Canvas/Dialogue");
                 dialogue.gameObject.SetActive(true);
                 interactable.startDialogue();
-            }          
-        }
-        
+                isInteracting = true;
 
-        
+            }
+
+        }
+
+
+        if (isInteracting)
+        {
+            if (interactable.isDone)
+            {
+                interactable.presentOptions();
+                interactable.transform.Find("Canvas/Options").gameObject.SetActive(true);
+            }
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

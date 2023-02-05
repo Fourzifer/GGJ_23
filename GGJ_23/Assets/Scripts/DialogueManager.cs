@@ -6,7 +6,7 @@ using UnityEngine;
 public class DialogueManager : MonoBehaviour
 {
     public TextMeshProUGUI text;
-    public string NPCMessage; //hello little chlild
+    public string[] NPCMessage; //hello little chlild
 
     public string[] choices;
 
@@ -15,8 +15,11 @@ public class DialogueManager : MonoBehaviour
     public float speed;
 
     public TextMeshProUGUI button1;
+    public TextMeshProUGUI button2;
+    public TextMeshProUGUI button3;
 
-   
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,47 +38,47 @@ public class DialogueManager : MonoBehaviour
 
     }
 
-    void continueDialogue()
-    {
-        for (int i = 0; i < choices.Length; i++)
-        {
-            StartCoroutine(writeText(choices[i]));
-        }
-    }
+    public bool isDone = false;
 
-    IEnumerator writeText(string message)
+    IEnumerator writeText(string[] message)
     {
-      
+
+        
         for (int i = 0; i < message.Length; i++)
         {
-            if (message[i] == '<')
+            for (int k = 0; k < message[i].Length; k++)
             {
-               
-                while (message[i] != '>')
+                if (message[i][k] == '<')
                 {
-                    text.text += message[i];
-                    i++;
+
+                    while (message[i][k] != '>')
+                    {
+                        text.text += message[i][k];
+                        i++;
+                    }
+                    text.text += message[i][k];
+
                 }
-                text.text += message[i];
+                text.text += message[i][k];
 
+                yield return new WaitForSeconds(speed);
             }
-            text.text += message[i];
 
-            yield return new WaitForSeconds(speed);
+            yield return new WaitForSeconds(0.75f);
 
+            text.text = "";
+            
         }
 
+        isDone = true;
 
-    
     }
 
-    void presentOptions()
+    public void presentOptions()
     {
         button1.text = choices[0];
+        button2.text = choices[1];
+        button3.text = choices[2];
     }
-
-
-
-
 }
 
