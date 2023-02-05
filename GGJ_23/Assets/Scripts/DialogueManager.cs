@@ -27,6 +27,7 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI buttonText;
 
     public string[] objectDescription;
+    public bool isObject;
 
     GameObject[] buttons;
 
@@ -64,13 +65,20 @@ public class DialogueManager : MonoBehaviour
             {
                 if (byeOption == true)
                 {
-                    print("hel");
+                   
                     Canvas canvas = buttonParent.GetComponentInParent<Canvas>();
                     canvas.transform.Find("Dialogue").gameObject.SetActive(false);
                    
                     state = DialogStates.Waiting;
                 }
-               
+
+                else if (isObject)
+                {
+                    Canvas canvas = buttonParent.GetComponentInParent<Canvas>();
+                    canvas.transform.Find("Dialogue").gameObject.SetActive(false);
+
+                    state = DialogStates.Waiting;
+                }
                 else
                 {
                     state = DialogStates.Buttons;
@@ -91,7 +99,15 @@ public class DialogueManager : MonoBehaviour
 
     public void startDialogue()
     {
-        StartCoroutine(writeText(NPCMessage));
+        if (isObject==false)
+        {
+            StartCoroutine(writeText(NPCMessage));
+        }
+        else if (isObject==true)
+        {
+            StartCoroutine(writeText(objectDescription));
+        }
+        
 
     }
     
